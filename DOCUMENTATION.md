@@ -2,7 +2,14 @@
 
 ## 📊 Project Overview
 
-**Investimate Analytics** is a comprehensive Streamlit dashboard for analyzing short-term rental performance data from Mykonos and Paros islands. The application provides detailed insights into property performance, seasonal trends, amenity impacts, and pricing optimization.
+**Investimate Analytics** is a comprehensive Streamlit dashboard for analyzing short-term rental performance data from Mykonos and Paros islands. The application provides detailed insights into property performance, seasonal trends, amenity impacts, pricing optimization, and AI-powered investment recommendations.
+
+### 🆕 Recent Updates & Features
+- **AI Investment Engine**: Machine learning-powered property scoring and investment recommendations
+- **Interactive Maps**: Property performance mapping with heatmaps and clustering
+- **Advanced Analytics**: Predictive models, competitive intelligence, and 3D visualizations
+- **Enhanced UI**: KPI metrics with color-coded change indicators and responsive design
+- **Comprehensive Documentation**: Detailed explanations of all functions and calculations
 
 ## 📁 Data Structure & Columns
 
@@ -351,7 +358,7 @@ fig_adr = px.bar(island_summary, x='island', y='avg_adr',
                  color='island', color_discrete_map={'Mykonos': '#1f77b4', 'Paros': '#ff7f0e'})
 ```
 
-### 2. Overview Page (`pages/1_Overview.py`)
+### 2. Seasonality Page (`pages/2_Seasonality.py`)
 
 #### Headline KPIs
 - **Method**: Streamlit `st.metric()` with period-over-period changes
@@ -563,7 +570,7 @@ st.plotly_chart(fig_adr, width='stretch')
 - `update_layout()` customizes chart appearance
 - `width='stretch'` makes chart responsive
 
-### 2. Overview Page (`pages/1_Overview.py`)
+### 2. Seasonality Page (`pages/2_Seasonality.py`)
 
 #### **Page Structure**
 ```python
@@ -1059,21 +1066,48 @@ st.markdown(f"""
 - **NumPy**: Numerical computations and linear regression
 - **Matplotlib**: Static plotting and visualization
 - **Plotly**: Interactive plotting and charts
+- **Folium**: Interactive mapping and geospatial visualization
+- **Scikit-learn**: Machine learning models and algorithms
+- **Seaborn**: Statistical data visualization
+- **Scipy**: Scientific computing and statistical functions
+- **Streamlit-Folium**: Streamlit integration for Folium maps
+
+### Updated Requirements (`requirements.txt`)
+```
+streamlit
+pandas
+numpy
+matplotlib
+plotly
+folium
+scikit-learn
+seaborn
+scipy
+streamlit-folium
+```
 
 ### File Structure
 ```
 investimate/
-├── app.py                          # Main dashboard
+├── app.py                          # Main dashboard with KPI metrics
 ├── pages/
-│   ├── 1_Overview.py              # Portfolio overview
 │   ├── 2_Seasonality.py           # Seasonal analysis
 │   ├── 3_Bedrooms_and_Types.py    # Property characteristics
 │   ├── 4_Amenities_and_Management.py # Amenity impact
-│   └── 5_Pricing_Insights.py      # Pricing optimization
-├── utils.py                       # Core functions
+│   ├── 5_Pricing_Insights.py      # Pricing optimization
+│   ├── 7_Interactive_Maps.py      # Property performance mapping
+│   ├── 8_Advanced_Metrics.py      # Advanced performance metrics
+│   ├── 9_Competitive_Intelligence.py # Market analysis
+│   ├── 10_Impressive_Visualizations.py # 3D plots and advanced charts
+│   ├── 11_Predictive_Analytics.py # Machine learning models
+│   ├── 13_AI_Investment_Recommendations.py # AI investment engine
+│   └── 14_Documentation.py        # This documentation (in UI)
+├── utils.py                       # Core data processing functions
+├── ui_utils.py                    # UI utilities and formatting
+├── ai_investment_engine.py        # AI investment recommendation engine
 ├── requirements.txt               # Dependencies
 ├── README.md                      # Setup instructions
-└── DOCUMENTATION.md               # This documentation
+└── DOCUMENTATION.md               # This comprehensive documentation
 ```
 
 ### Performance Optimizations
@@ -1081,6 +1115,203 @@ investimate/
 2. **Efficient Grouping**: Optimized pandas groupby operations
 3. **Caching**: Streamlit's built-in caching for data loading
 4. **Lazy Loading**: Data loaded only when needed
+5. **AI Model Caching**: AI analysis results cached to prevent re-computation
+6. **Progress Indicators**: Visual feedback during long-running operations
+
+## 🆕 New Features & Advanced Analytics
+
+### 1. AI Investment Recommendation Engine
+**File**: `ai_investment_engine.py`
+
+**Purpose**: Provides intelligent investment recommendations using machine learning models.
+
+**Key Features**:
+- **Property Scoring**: 6-dimensional scoring system (Revenue, ADR, Occupancy, Stability, Amenities, Location)
+- **Investment Grades**: A+ to C grading system for properties
+- **Risk Assessment**: Low/Medium/High risk categorization
+- **Buy/Sell/Hold Recommendations**: Actionable investment advice
+- **Portfolio Optimization**: Strategic suggestions for portfolio improvement
+- **Future Performance Prediction**: 12-month forecasting
+
+**Machine Learning Models**:
+- **RandomForestRegressor**: For revenue and RevPAR prediction
+- **GradientBoostingRegressor**: For ADR and occupancy prediction
+- **LinearRegression**: Baseline model for comparison
+- **Cross-validation**: Model performance evaluation
+
+**Technical Implementation**:
+- **Feature Engineering**: 79 engineered features from raw data
+- **Model Training**: Optimized hyperparameters for each model type
+- **Performance Metrics**: R² scores for model validation
+- **Caching Strategy**: Session state caching to prevent re-computation
+- **Error Handling**: Graceful handling of missing data (e.g., bathrooms column)
+- **Progress Indicators**: Visual feedback during model training
+- **Scalability**: Handles datasets with 50K+ records efficiently
+
+### 2. Interactive Property Maps
+**File**: `pages/7_Interactive_Maps.py`
+
+**Purpose**: Visualize property performance on interactive maps.
+
+**Features**:
+- **Folium Maps**: Interactive maps with property markers
+- **Performance Heatmaps**: Color-coded performance visualization
+- **Hex Grid Clustering**: Property density visualization
+- **Filtering**: By property type, price tier, and performance metrics
+- **Neighborhood Analysis**: Performance comparison by location
+
+### 3. Advanced Performance Metrics
+**File**: `pages/8_Advanced_Metrics.py`
+
+**Purpose**: Sophisticated performance analysis beyond basic KPIs.
+
+**Metrics**:
+- **Revenue per Bedroom**: Efficiency metric by property size
+- **Revenue per Bathroom**: Additional efficiency analysis
+- **Performance Volatility**: Risk assessment through coefficient of variation
+- **Revenue Concentration**: 80/20 rule analysis
+- **Occupancy Efficiency**: Advanced occupancy metrics
+- **Seasonal Volatility**: Performance stability over time
+
+### 4. Competitive Intelligence
+**File**: `pages/9_Competitive_Intelligence.py`
+
+**Purpose**: Market positioning and competitive analysis.
+
+**Features**:
+- **Performance Percentile Rankings**: Property performance vs. market
+- **Market Share Analysis**: By property type and price tier
+- **Competitive Positioning Matrix**: Visual market positioning
+- **Top Performer Identification**: Best-performing properties
+- **Benchmarking**: Performance comparison against peers
+
+### 5. Impressive Visualizations
+**File**: `pages/10_Impressive_Visualizations.py`
+
+**Purpose**: Advanced 3D and interactive visualizations.
+
+**Visualizations**:
+- **3D Scatter Plots**: ADR vs Occupancy vs Revenue
+- **Interactive Maps**: Performance layers and filtering
+- **Animated Seasonal Trends**: Time-series animations
+- **Correlation Matrices**: Feature relationship analysis
+- **Sankey Diagrams**: Market flow visualization
+
+### 6. Predictive Analytics
+**File**: `pages/11_Predictive_Analytics.py`
+
+**Purpose**: Machine learning models for forecasting.
+
+**Models**:
+- **Seasonal Demand Forecasting**: 12-month demand prediction
+- **Price Elasticity Modeling**: Advanced pricing optimization
+- **Occupancy Prediction**: Booking probability models
+- **Revenue Forecasting**: Future revenue projections
+- **Model Performance Evaluation**: R² scores and validation metrics
+
+### 7. AI Investment Recommendations Dashboard
+**File**: `pages/13_AI_Investment_Recommendations.py`
+
+**Purpose**: Interactive dashboard for AI-powered investment analysis and recommendations.
+
+**Features**:
+- **Property Investment Scores**: 6-dimensional scoring system with visual indicators
+- **Investment Grades**: A+ to C grading with color-coded badges
+- **Risk Assessment**: Low/Medium/High risk categorization with explanations
+- **Buy/Sell/Hold Recommendations**: Actionable investment advice with reasoning
+- **Portfolio Optimization**: Strategic suggestions for portfolio improvement
+- **Future Performance Prediction**: 12-month forecasting with confidence intervals
+- **Investment Opportunities**: Identified high-potential properties
+- **Performance Comparison**: Benchmarking against market averages
+- **Interactive Filters**: Filter by island, property type, investment grade, and risk level
+- **Export Functionality**: Download recommendations and analysis results
+
+**Dashboard Components**:
+- **Executive Summary**: Key insights and recommendations at a glance
+- **Property Scoring Matrix**: Visual representation of all properties with scores
+- **Investment Grade Distribution**: Pie charts showing grade distribution
+- **Risk Analysis**: Risk distribution and mitigation strategies
+- **Top Opportunities**: Highlighted high-potential investments
+- **Portfolio Optimization**: Suggestions for portfolio rebalancing
+- **Performance Forecasting**: Future revenue and occupancy predictions
+
+### 8. Enhanced UI Components
+**File**: `ui_utils.py`
+
+**Purpose**: Centralized UI utilities and formatting.
+
+**Features**:
+- **Metric Containers**: Styled KPI display with color-coded deltas
+- **Responsive Design**: Mobile and tablet optimization
+- **Custom CSS**: Enhanced visual styling
+- **Progress Indicators**: Loading states and progress bars
+- **Error Handling**: Graceful error management
+
+## 🎨 UI/UX Improvements
+
+### KPI Metrics with Change Indicators
+**Implementation**: Color-coded delta indicators showing performance changes
+
+**Color Logic**:
+- 🟢 **Green (normal)**: Positive changes (improvements)
+- 🔴 **Red (inverse)**: Negative changes (declines)
+- ⚪ **Gray (off)**: No significant change
+
+**Change Calculation**: Compares H1 (Jan-Jun) vs H2 (Jul-Dec) for seasonal trends
+
+### Responsive Design
+- **Mobile Optimization**: Touch-friendly interface
+- **Tablet Support**: Optimized layouts for medium screens
+- **Desktop Enhancement**: Full-featured desktop experience
+- **Custom CSS**: Enhanced visual styling and spacing
+
+### User Experience Enhancements
+- **Loading States**: Visual feedback during data processing
+- **Error Handling**: Graceful error messages and recovery
+- **Navigation**: Intuitive sidebar navigation
+- **Documentation**: In-app help and explanations
+
+## 🧭 Current Navigation Structure
+
+### Main Dashboard (`app.py`)
+- **Overall Portfolio KPIs**: 8 key metrics with change indicators
+- **Island Performance Summary**: KPI metrics for each island with seasonal trends
+- **Island Comparison Charts**: Visual comparison of performance metrics
+- **Quick Insights**: Automated insights and recommendations
+
+### Analytics Pages
+1. **Seasonality** (`2_Seasonality.py`): Monthly trends and seasonal patterns
+2. **Bedrooms & Types** (`3_Bedrooms_and_Types.py`): Performance by property configuration
+3. **Amenities & Management** (`4_Amenities_and_Management.py`): Feature impact analysis
+4. **Pricing Insights** (`5_Pricing_Insights.py`): Price elasticity and optimization
+5. **Interactive Maps** (`7_Interactive_Maps.py`): Property performance mapping
+6. **Advanced Metrics** (`8_Advanced_Metrics.py`): Sophisticated performance indicators
+7. **Competitive Intelligence** (`9_Competitive_Intelligence.py`): Market positioning analysis
+8. **Impressive Visualizations** (`10_Impressive_Visualizations.py`): 3D plots and advanced charts
+9. **Predictive Analytics** (`11_Predictive_Analytics.py`): Machine learning forecasting
+10. **AI Investment Recommendations** (`13_AI_Investment_Recommendations.py`): Intelligent investment guidance
+11. **Documentation** (`14_Documentation.py`): Comprehensive project documentation
+
+## 🔄 Recent Improvements & Consolidations
+
+### Streamlined Architecture
+- **Removed Redundancy**: Eliminated duplicate overview page
+- **Consolidated Features**: Merged related functionality into single pages
+- **Optimized Navigation**: Logical flow from basic to advanced analytics
+- **Enhanced Performance**: Improved loading times and caching
+
+### UI/UX Enhancements
+- **KPI Metrics**: Converted tables to interactive metric cards
+- **Color-Coded Indicators**: Visual performance change indicators
+- **Responsive Design**: Mobile and tablet optimization
+- **Progress Feedback**: Loading states and progress indicators
+- **Error Handling**: Graceful error management and recovery
+
+### Technical Improvements
+- **Modular Code**: Separated concerns into focused modules
+- **Caching Strategy**: Session state and AI model caching
+- **Performance Optimization**: Reduced computation overhead
+- **Code Quality**: Improved maintainability and documentation
 
 ## 📈 Business Applications
 
@@ -1089,17 +1320,86 @@ investimate/
 - **Amenity ROI**: Quantify the impact of specific amenities
 - **Pricing Strategy**: Data-driven pricing recommendations
 - **Seasonal Planning**: Optimize operations for seasonal variations
+- **AI Recommendations**: Machine learning-powered investment guidance
 
 ### Performance Monitoring
 - **KPI Tracking**: Monitor key performance indicators over time
 - **Benchmarking**: Compare performance across islands and property types
 - **Trend Analysis**: Identify performance trends and patterns
 - **Alert System**: Visual indicators for performance changes
+- **Predictive Insights**: Forecast future performance
 
 ### Strategic Planning
 - **Market Analysis**: Understand market dynamics and opportunities
 - **Competitive Positioning**: Benchmark against market performance
 - **Resource Allocation**: Optimize investment in amenities and improvements
 - **Risk Management**: Identify and mitigate performance risks
+
+## 🔧 Troubleshooting & Common Issues
+
+### Data Loading Issues
+**Problem**: CSV files not found
+**Solution**: Ensure all CSV files are in the project root directory
+**Files Required**: 
+- `mykonos_monthly_performance.csv`
+- `mykonos_property_details.csv`
+- `paros_monthly_performance.csv`
+- `paros_property_details.csv`
+
+### Column Name Errors
+**Problem**: `KeyError` for column names
+**Solution**: Check that column names match exactly (case-sensitive)
+**Common Issues**:
+- `bedrooms` vs `bedrooms_x` (after merging)
+- `bathrooms` column may be missing (handled with proxy)
+- `adm_3_id` conflicts (resolved by renaming)
+
+### AI Investment Engine Issues
+**Problem**: "bathrooms" column not found
+**Solution**: The system automatically uses `bedrooms_x` as a proxy
+**Implementation**: Conditional checks in `ai_investment_engine.py`
+
+### Performance Issues
+**Problem**: Slow loading times
+**Solutions**:
+- Use session state caching
+- Refresh AI analysis only when needed
+- Check for multiple Streamlit processes running
+
+### UI Display Issues
+**Problem**: Delta values not showing colors
+**Solution**: Check that delta values are properly formatted with "%" suffix
+**Implementation**: Automatic formatting in `ui_utils.py`
+
+### Streamlit Warnings
+**Problem**: `use_container_width` deprecation warnings
+**Solution**: Use `width='stretch'` instead of `use_container_width=True`
+**Status**: All instances have been updated
+
+## 📚 Additional Resources
+
+### Getting Started
+1. **Install Dependencies**: `pip install -r requirements.txt`
+2. **Run Application**: `streamlit run app.py`
+3. **Access Dashboard**: Open `http://localhost:8501` in browser
+4. **Navigate Pages**: Use sidebar navigation to explore features
+
+### Data Requirements
+- **Format**: CSV files with specific column names
+- **Size**: Optimized for datasets up to 100K+ records
+- **Updates**: Replace CSV files to update data
+- **Validation**: Automatic data quality checks
+
+### Customization
+- **Styling**: Modify CSS in `ui_utils.py`
+- **Metrics**: Add new KPIs in `utils.py`
+- **Pages**: Create new analysis pages in `pages/` directory
+- **AI Models**: Extend models in `ai_investment_engine.py`
+
+### Support
+- **Documentation**: Comprehensive explanations in this file
+- **Code Comments**: Detailed inline documentation
+- **Error Handling**: Graceful error messages and recovery
+- **Debug Mode**: Use debug expanders for troubleshooting
 
 This documentation provides a complete understanding of the Investimate Analytics system, from data structure to business applications, ensuring transparency and reproducibility of all analyses and visualizations.

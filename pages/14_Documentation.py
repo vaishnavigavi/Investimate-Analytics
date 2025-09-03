@@ -15,7 +15,7 @@ def main():
     
     **Core Analytics:** Seasonality → Bedrooms & Types → Amenities & Management → Pricing Insights
     
-    **Advanced Analytics:** Interactive Maps → Advanced Metrics → Competitive Intelligence → Impressive Visualizations → Predictive Analytics
+    **Advanced Analytics:** Interactive Maps → Advanced Metrics → Competitive Intelligence → Impressive Visualizations → Predictive Analytics → AI Investment Recommendations
     
     **Documentation:** Complete technical guide (this page)
     """)
@@ -51,6 +51,7 @@ def main():
         - [KPI Formulas](#kpi-formulas)
         - [Core Functions](#core-functions)
         - [Visualization Methods](#visualization-methods)
+        - [AI Investment Engine](#ai-investment-recommendations)
         """)
     
     with toc_col3:
@@ -194,7 +195,7 @@ def main():
         
         # Show example output
         island_summary = agg_island_summary(data)
-        st.dataframe(island_summary, use_container_width=True)
+        st.dataframe(island_summary, width='stretch')
     
     with func_tabs[1]:
         st.markdown("""
@@ -215,7 +216,7 @@ def main():
         
         # Show example output
         seasonal_data = seasonality(data)
-        st.dataframe(seasonal_data.head(10), use_container_width=True)
+        st.dataframe(seasonal_data.head(10), width='stretch')
     
     with func_tabs[2]:
         st.markdown("""
@@ -236,7 +237,7 @@ def main():
         
         # Show example output
         bedroom_data = bedrooms_perf(data)
-        st.dataframe(bedroom_data, use_container_width=True)
+        st.dataframe(bedroom_data, width='stretch')
     
     with func_tabs[3]:
         st.markdown("""
@@ -257,7 +258,7 @@ def main():
         
         # Show example output
         type_data = ptype_perf(data)
-        st.dataframe(type_data.head(10), use_container_width=True)
+        st.dataframe(type_data.head(10), width='stretch')
     
     with func_tabs[4]:
         st.markdown("""
@@ -279,7 +280,7 @@ def main():
         
         # Show example output
         uplift_data = uplift_table(data)
-        st.dataframe(uplift_data, use_container_width=True)
+        st.dataframe(uplift_data, width='stretch')
     
     with func_tabs[5]:
         st.markdown("""
@@ -301,7 +302,7 @@ def main():
         
         # Show example output
         elasticity_data = price_elasticity_simple(data)
-        st.dataframe(elasticity_data.head(10), use_container_width=True)
+        st.dataframe(elasticity_data.head(10), width='stretch')
     
     st.markdown("---")
     
@@ -317,10 +318,10 @@ def main():
         - **Island Charts**: Plotly Express bar charts
         - **Layout**: 5-column responsive grid
         
-        **Overview Page (`pages/1_Overview.py`)**
-        - **Headline KPIs**: Streamlit metrics with period changes
-        - **Performance Charts**: Matplotlib subplots
-        - **Visualization**: Side-by-side bar charts
+        **Seasonality Page (`pages/2_Seasonality.py`)**
+        - **Monthly Trends**: Matplotlib line plots
+        - **Interactive Selection**: Dropdown for metric selection
+        - **Data Table**: Detailed monthly performance
         """)
     
     with viz_col2:
@@ -406,11 +407,31 @@ def main():
         - Machine learning models for forecasting
         - Seasonal demand prediction
         - Revenue optimization recommendations
+        
+        **🤖 AI Investment Recommendations (`pages/13_AI_Investment_Recommendations.py`)**
+        - **Property Investment Scores**: 6-dimensional scoring system (Revenue, ADR, Occupancy, Stability, Amenities, Location)
+        - **Investment Grades**: A+ to C grading system with color-coded badges
+        - **Risk Assessment**: Low/Medium/High risk categorization with explanations
+        - **Buy/Sell/Hold Recommendations**: Actionable investment advice with reasoning
+        - **Portfolio Optimization**: Strategic suggestions for portfolio improvement
+        - **Future Performance Prediction**: 12-month forecasting with confidence intervals
+        - **Investment Opportunities**: Identified high-potential properties
+        - **Interactive Filters**: Filter by island, property type, investment grade, and risk level
+        - **Export Functionality**: Download recommendations and analysis results
+        
+        **🔧 AI Engine Technical Features:**
+        - **Machine Learning Models**: RandomForestRegressor, GradientBoostingRegressor, LinearRegression
+        - **Feature Engineering**: 79 engineered features from raw data
+        - **Model Performance**: R² scores for validation (Revenue: 0.62, ADR: 0.83, Occupancy: 0.37)
+        - **Caching Strategy**: Session state caching to prevent re-computation
+        - **Error Handling**: Graceful handling of missing data (e.g., bathrooms column)
+        - **Progress Indicators**: Visual feedback during model training
+        - **Scalability**: Handles datasets with 50K+ records efficiently
         """)
     
     with page_tabs[3]:
         st.markdown("""
-        **Documentation Page (`pages/6_Documentation.py`)**
+        **Documentation Page (`pages/14_Documentation.py`)**
         - **Complete Technical Documentation**: This comprehensive guide
         - **Data Structure**: Detailed explanation of datasets and columns
         - **Formula Reference**: All calculations and methodologies
@@ -514,6 +535,72 @@ def main():
     
     st.markdown("---")
     
+    # AI Investment Engine Section
+    st.subheader("🤖 AI Investment Recommendations")
+    
+    st.markdown("""
+    **The AI Investment Recommendations page (`pages/13_AI_Investment_Recommendations.py`) provides intelligent investment analysis using machine learning models.**
+    
+    ### 🎯 Key Features
+    
+    **Property Investment Scoring:**
+    - **6-Dimensional Scoring**: Revenue, ADR, Occupancy, Stability, Amenities, Location
+    - **Investment Grades**: A+ to C grading system with color-coded badges
+    - **Risk Assessment**: Low/Medium/High risk categorization with detailed explanations
+    
+    **Investment Recommendations:**
+    - **Buy/Sell/Hold Advice**: Actionable investment recommendations with reasoning
+    - **Portfolio Optimization**: Strategic suggestions for portfolio improvement
+    - **Future Performance Prediction**: 12-month forecasting with confidence intervals
+    - **Investment Opportunities**: Identified high-potential properties
+    
+    **Interactive Dashboard:**
+    - **Executive Summary**: Key insights and recommendations at a glance
+    - **Property Scoring Matrix**: Visual representation of all properties with scores
+    - **Investment Grade Distribution**: Pie charts showing grade distribution
+    - **Risk Analysis**: Risk distribution and mitigation strategies
+    - **Top Opportunities**: Highlighted high-potential investments
+    - **Interactive Filters**: Filter by island, property type, investment grade, and risk level
+    - **Export Functionality**: Download recommendations and analysis results
+    
+    ### 🔧 Technical Implementation
+    
+    **Machine Learning Models:**
+    - **RandomForestRegressor**: For revenue and RevPAR prediction
+    - **GradientBoostingRegressor**: For ADR and occupancy prediction
+    - **LinearRegression**: Baseline model for comparison
+    - **Cross-validation**: Model performance evaluation
+    
+    **Performance Metrics:**
+    - **Revenue Model**: R² = 0.62 (62% variance explained)
+    - **ADR Model**: R² = 0.83 (83% variance explained)
+    - **Occupancy Model**: R² = 0.37 (37% variance explained)
+    - **RevPAR Model**: R² = 0.62 (62% variance explained)
+    
+    **Technical Features:**
+    - **Feature Engineering**: 79 engineered features from raw data
+    - **Caching Strategy**: Session state caching to prevent re-computation
+    - **Error Handling**: Graceful handling of missing data (e.g., bathrooms column)
+    - **Progress Indicators**: Visual feedback during model training
+    - **Scalability**: Handles datasets with 50K+ records efficiently
+    
+    ### 📊 Business Value
+    
+    **Investment Decision Support:**
+    - Identify high-performing properties for acquisition
+    - Optimize existing portfolio performance
+    - Risk assessment and mitigation strategies
+    - Data-driven investment recommendations
+    
+    **Portfolio Management:**
+    - Strategic portfolio rebalancing suggestions
+    - Performance benchmarking against market
+    - Future performance forecasting
+    - Investment opportunity identification
+    """)
+    
+    st.markdown("---")
+    
     # Code Function Explanations
     st.subheader("💻 Python Code Function Explanations")
     
@@ -557,7 +644,7 @@ def main():
     
     with code_tabs[1]:
         st.markdown("""
-        **Overview Page (`pages/1_Overview.py`) - Key Functions:**
+        **Main Dashboard (`app.py`) - Key Functions:**
         
         ```python
         # Period Change Calculation Function
@@ -660,7 +747,7 @@ def main():
         ```python
         # Uplift Analysis
         uplift_data = uplift_table(data)
-        st.dataframe(uplift_data, use_container_width=True)
+        st.dataframe(uplift_data, width='stretch')
         ```
         
         **Explanation**: Calls uplift_table() function to analyze amenity impact on performance.

@@ -94,11 +94,23 @@ def create_metric_container(metric_data, container_class="metric-container"):
         # Extract numeric value from delta string (e.g., "-6.1%" -> -6.1)
         delta_text = metric_data['delta']
         if '%' in delta_text:
-            delta_value = float(delta_text.replace('%', '').replace('vs H1', '').strip())
+            delta_numeric = float(delta_text.replace('%', '').replace('vs H1', '').strip())
+            delta_value = delta_text  # Keep the formatted string with %
         else:
-            delta_value = delta_text
+            # If no % suffix, add it
+            delta_numeric = float(delta_text)
+            delta_value = f"{delta_numeric:+.1f}%"  # Format with + sign and % suffix
         
-        delta_color = metric_data.get('delta_color', 'normal')
+        # Auto-determine delta color based on numeric value
+        if delta_numeric > 0:
+            delta_color = "normal"  # Green for positive changes
+        elif delta_numeric < 0:
+            delta_color = "inverse"  # Red for negative changes
+        else:
+            delta_color = "off"  # Gray for no change
+        
+        # Override with explicit color if provided
+        delta_color = metric_data.get('delta_color', delta_color)
     
     # Use Streamlit's native metric
     st.metric(
@@ -286,7 +298,7 @@ def create_data_table_with_formatting(df, title="Data Table", columns_config=Non
     else:
         formatted_df = df
     
-    st.dataframe(formatted_df, width='stretch', use_container_width=True)
+    st.dataframe(formatted_df, width='stretch')
     
     st.markdown("---")
 
