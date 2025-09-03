@@ -91,7 +91,7 @@ def main():
         'RevPAR With', 'RevPAR Without', 'RevPAR Uplift %'
     ]
     
-    st.dataframe(display_uplift, width='stretch', hide_index=True)
+    st.dataframe(display_uplift, , hide_index=True)
     
     # Visualizations
     st.subheader("📊 Amenity Impact Visualizations")
@@ -112,7 +112,7 @@ def main():
             color_continuous_scale='RdYlGn'
         )
         fig_revpar.update_layout(height=500, yaxis={'categoryorder': 'total ascending'})
-        st.plotly_chart(fig_revpar, width='stretch')
+        st.plotly_chart(fig_revpar, )
     
     with tab2:
         # ADR uplift chart
@@ -127,7 +127,7 @@ def main():
             color_continuous_scale='Blues'
         )
         fig_adr.update_layout(height=500, yaxis={'categoryorder': 'total ascending'})
-        st.plotly_chart(fig_adr, width='stretch')
+        st.plotly_chart(fig_adr, )
     
     with tab3:
         # Occupancy uplift chart
@@ -142,7 +142,7 @@ def main():
             color_continuous_scale='Greens'
         )
         fig_occ.update_layout(height=500, yaxis={'categoryorder': 'total ascending'})
-        st.plotly_chart(fig_occ, width='stretch')
+        st.plotly_chart(fig_occ, )
     
     # Island-specific analysis
     st.subheader("🏝️ Island-Specific Amenity Impact")
@@ -177,7 +177,7 @@ def main():
             barmode='group'
         )
         fig_island.update_layout(height=500)
-        st.plotly_chart(fig_island, width='stretch')
+        st.plotly_chart(fig_island, )
     
     # ROI Analysis
     st.subheader("💰 Return on Investment Analysis")
@@ -233,7 +233,7 @@ def main():
         'ROI Percentage', 'Payback Period (Months)'
     ]
     
-    st.dataframe(display_roi, width='stretch', hide_index=True)
+    st.dataframe(display_roi, , hide_index=True)
     
     # Recommendations
     st.subheader("💡 Amenity Investment Recommendations")

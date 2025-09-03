@@ -298,7 +298,7 @@ def create_data_table_with_formatting(df, title="Data Table", columns_config=Non
     else:
         formatted_df = df
     
-    st.dataframe(formatted_df, width='stretch')
+    st.dataframe(formatted_df, )
     
     st.markdown("---")
 

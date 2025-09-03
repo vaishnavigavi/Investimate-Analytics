@@ -53,7 +53,7 @@ def main():
             }
         )
         fig.update_layout(height=600)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with tab2:
         # 3D scatter: Performance vs Volatility
@@ -73,7 +73,7 @@ def main():
             }
         )
         fig.update_layout(height=600)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with tab3:
         # 3D scatter: Revenue vs Efficiency
@@ -93,7 +93,7 @@ def main():
             }
         )
         fig.update_layout(height=600)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with tab4:
         # 3D scatter: Competitive Positioning
@@ -113,7 +113,7 @@ def main():
             }
         )
         fig.update_layout(height=600)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Correlation Matrices
     st.markdown("---")
@@ -151,7 +151,7 @@ def main():
             color_continuous_scale='RdBu_r'
         )
         fig.update_layout(height=500)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
         
         # Correlation insights
         st.subheader("📊 Correlation Insights")
@@ -172,7 +172,7 @@ def main():
         
         st.dataframe(
             top_correlations[['metric1', 'metric2', 'correlation']].round(3),
-            width='stretch'
+            
         )
     
     # Sankey Diagrams
@@ -199,7 +199,7 @@ def main():
     )])
     
     fig.update_layout(title_text="Property Type Distribution Flow", font_size=10, height=500)
-    st.plotly_chart(fig, width='stretch')
+    st.plotly_chart(fig, )
     
     # Advanced Performance Visualizations
     st.markdown("---")
@@ -220,7 +220,7 @@ def main():
             color_continuous_scale='Viridis'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with tab2:
         # Box plots for performance metrics
@@ -245,7 +245,7 @@ def main():
                     )
             
             fig.update_layout(height=400, title="Performance Metrics Distribution by Island")
-            st.plotly_chart(fig, width='stretch')
+            st.plotly_chart(fig, )
     
     with tab3:
         # Violin plots for performance distribution
@@ -258,7 +258,7 @@ def main():
             title="RevPAR Distribution by Island (Violin Plot)"
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with tab4:
         # Ridge plots (density plots)
@@ -280,7 +280,7 @@ def main():
             barmode='overlay',
             height=400
         )
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Interactive Time Series
     st.markdown("---")
@@ -309,7 +309,7 @@ def main():
         markers=True
     )
     fig.update_layout(height=400)
-    st.plotly_chart(fig, width='stretch')
+    st.plotly_chart(fig, )
     
     # Multi-metric time series
     fig = make_subplots(
@@ -340,7 +340,7 @@ def main():
         )
     
     fig.update_layout(height=600, title="Multi-Metric Time Series Analysis")
-    st.plotly_chart(fig, width='stretch')
+    st.plotly_chart(fig, )
     
     # Advanced Statistical Visualizations
     st.markdown("---")
@@ -395,7 +395,7 @@ def main():
             barmode='overlay',
             height=400
         )
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Key Insights
     st.markdown("---")

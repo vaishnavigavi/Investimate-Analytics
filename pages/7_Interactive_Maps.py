@@ -202,14 +202,14 @@ def main():
                 color_discrete_sequence=['#1f77b4']
             )
             fig.update_layout(height=300)
-            st.plotly_chart(fig, width='stretch')
+            st.plotly_chart(fig, )
             
             # Top performers
             st.subheader("🏆 Top Performers")
             top_performers = filtered_data.nlargest(5, color_metric)[
                 ['property_id', 'property_type', 'bedrooms', color_metric]
             ]
-            st.dataframe(top_performers, width='stretch')
+            st.dataframe(top_performers, )
     
     # Hex grid analysis
     st.markdown("---")
@@ -240,7 +240,7 @@ def main():
             
             st.dataframe(
                 display_hex[['hex_id_res7', 'property_count', 'revpar', 'occupancy', 'adr']],
-                width='stretch'
+                
             )
         
         with col4:
@@ -258,7 +258,7 @@ def main():
                 color_continuous_scale='Viridis'
             )
             fig.update_layout(height=400)
-            st.plotly_chart(fig, width='stretch')
+            st.plotly_chart(fig, )
     
     # Property type performance by location
     st.markdown("---")
@@ -285,7 +285,7 @@ def main():
             barmode='group'
         )
         fig.update_layout(height=400, xaxis_tickangle=-45)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
         
         # Property type performance table
         st.subheader("📋 Detailed Property Type Performance")
@@ -296,7 +296,7 @@ def main():
         
         st.dataframe(
             display_type[['island', 'property_type', 'property_count', 'revpar', 'occupancy', 'adr']],
-            width='stretch'
+            
         )
 
 if __name__ == "__main__":

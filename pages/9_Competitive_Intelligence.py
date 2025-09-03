@@ -83,7 +83,7 @@ def main():
             color_discrete_sequence=['#2E8B57', '#32CD32', '#FFD700', '#FF6347']
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # Competitive score distribution
@@ -95,7 +95,7 @@ def main():
             color='island'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Percentile Rankings
     st.markdown("---")
@@ -113,7 +113,7 @@ def main():
             color='island'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # Occupancy percentile distribution
@@ -125,7 +125,7 @@ def main():
             color='island'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # RevPAR and Revenue percentiles
     col1, col2 = st.columns(2)
@@ -140,7 +140,7 @@ def main():
             color='island'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # Revenue percentile distribution
@@ -152,7 +152,7 @@ def main():
             color='island'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Market Share Analysis
     st.markdown("---")
@@ -172,7 +172,7 @@ def main():
             color_continuous_scale='Viridis'
         )
         fig.update_layout(height=400, xaxis_tickangle=-45)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # Market share distribution
@@ -184,7 +184,7 @@ def main():
             color='island'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Top Performers by Category
     st.markdown("---")
@@ -200,7 +200,7 @@ def main():
         display_leaders['adr_percentile'] = display_leaders['adr_percentile'].round(1)
         display_leaders['occupancy_percentile'] = display_leaders['occupancy_percentile'].round(1)
         display_leaders['revpar_percentile'] = display_leaders['revpar_percentile'].round(1)
-        st.dataframe(display_leaders, width='stretch')
+        st.dataframe(display_leaders, )
     
     with tab2:
         top_adr = competitive_data.nlargest(10, 'adr_percentile')
@@ -208,7 +208,7 @@ def main():
         display_adr['adr'] = '€' + display_adr['adr'].round(2).astype(str)
         display_adr['adr_percentile'] = display_adr['adr_percentile'].round(1)
         display_adr['competitive_score'] = display_adr['competitive_score'].round(1)
-        st.dataframe(display_adr, width='stretch')
+        st.dataframe(display_adr, )
     
     with tab3:
         top_occupancy = competitive_data.nlargest(10, 'occupancy_percentile')
@@ -216,7 +216,7 @@ def main():
         display_occupancy['occupancy'] = (display_occupancy['occupancy'] * 100).round(1).astype(str) + '%'
         display_occupancy['occupancy_percentile'] = display_occupancy['occupancy_percentile'].round(1)
         display_occupancy['competitive_score'] = display_occupancy['competitive_score'].round(1)
-        st.dataframe(display_occupancy, width='stretch')
+        st.dataframe(display_occupancy, )
     
     with tab4:
         top_revpar = competitive_data.nlargest(10, 'revpar_percentile')
@@ -224,7 +224,7 @@ def main():
         display_revpar['revpar'] = '€' + display_revpar['revpar'].round(2).astype(str)
         display_revpar['revpar_percentile'] = display_revpar['revpar_percentile'].round(1)
         display_revpar['competitive_score'] = display_revpar['competitive_score'].round(1)
-        st.dataframe(display_revpar, width='stretch')
+        st.dataframe(display_revpar, )
     
     # Price Tier Performance Analysis
     st.markdown("---")
@@ -243,7 +243,7 @@ def main():
             barmode='group'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # Market share by price tier
@@ -256,7 +256,7 @@ def main():
             barmode='group'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Price tier efficiency analysis
     col1, col2 = st.columns(2)
@@ -272,7 +272,7 @@ def main():
             barmode='group'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # RevPAR efficiency by price tier
@@ -285,7 +285,7 @@ def main():
             barmode='group'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Management Performance Analysis
     st.markdown("---")
@@ -304,7 +304,7 @@ def main():
             barmode='group'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # Management type occupancy comparison
@@ -317,7 +317,7 @@ def main():
             barmode='group'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Management performance table
     st.subheader("📋 Management Performance Summary")
@@ -329,7 +329,7 @@ def main():
     
     st.dataframe(
         display_mgmt[['island', 'management_type', 'property_id', 'revpar', 'occupancy', 'adr', 'revenue_per_property']],
-        width='stretch'
+        
     )
     
     # Competitive Positioning Matrix
@@ -364,7 +364,7 @@ def main():
     fig.add_annotation(x=25, y=25, text="Low ADR<br>Low Occupancy", showarrow=False, font=dict(size=12))
     
     fig.update_layout(height=600)
-    st.plotly_chart(fig, width='stretch')
+    st.plotly_chart(fig, )
     
     # Key Insights
     st.markdown("---")

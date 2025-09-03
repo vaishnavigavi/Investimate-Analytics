@@ -77,7 +77,7 @@ def main():
             color='island'
         )
         fig.update_layout(height=400, xaxis_tickangle=-45)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # ADR per bedroom by property type
@@ -89,7 +89,7 @@ def main():
             color='island'
         )
         fig.update_layout(height=400, xaxis_tickangle=-45)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Performance efficiency analysis
     st.markdown("---")
@@ -107,7 +107,7 @@ def main():
             color='island'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # RevPAR efficiency distribution
@@ -119,7 +119,7 @@ def main():
             color='island'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Performance score analysis
     st.markdown("---")
@@ -137,7 +137,7 @@ def main():
             color='island'
         )
         fig.update_layout(height=400, xaxis_tickangle=-45)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # Performance score vs revenue correlation
@@ -151,7 +151,7 @@ def main():
             hover_data=['property_type', 'price_tier']
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Top and bottom performers
     st.markdown("---")
@@ -167,7 +167,7 @@ def main():
         top_performers['performance_score'] = top_performers['performance_score'].round(1)
         top_performers['total_revenue'] = '€' + top_performers['total_revenue'].round(0).astype(str)
         top_performers['revenue_per_bedroom'] = '€' + top_performers['revenue_per_bedroom'].round(0).astype(str)
-        st.dataframe(top_performers, width='stretch')
+        st.dataframe(top_performers, )
     
     with col2:
         st.subheader("📉 Bottom 10 Performers")
@@ -177,7 +177,7 @@ def main():
         bottom_performers['performance_score'] = bottom_performers['performance_score'].round(1)
         bottom_performers['total_revenue'] = '€' + bottom_performers['total_revenue'].round(0).astype(str)
         bottom_performers['revenue_per_bedroom'] = '€' + bottom_performers['revenue_per_bedroom'].round(0).astype(str)
-        st.dataframe(bottom_performers, width='stretch')
+        st.dataframe(bottom_performers, )
     
     # Revenue Concentration Analysis
     st.markdown("---")
@@ -243,7 +243,7 @@ def main():
             yaxis_title="Cumulative Revenue %",
             height=400
         )
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # Revenue distribution by property type
@@ -255,7 +255,7 @@ def main():
             title="Revenue Distribution by Property Type"
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Volatility Analysis
     st.markdown("---")
@@ -297,7 +297,7 @@ def main():
             color='island'
         )
         fig.update_layout(height=400, xaxis_tickangle=-45)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # Volatility levels distribution
@@ -309,7 +309,7 @@ def main():
             title="Property Volatility Levels Distribution"
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Volatility vs Performance correlation
     st.markdown("---")
@@ -336,7 +336,7 @@ def main():
             hover_data=['property_type', 'volatility_level']
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # Volatility vs Revenue
@@ -350,7 +350,7 @@ def main():
             hover_data=['property_type', 'volatility_level']
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Key Insights
     st.markdown("---")

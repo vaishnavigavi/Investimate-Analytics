@@ -83,7 +83,7 @@ def main():
             barmode='group'
         )
         fig_elasticity.update_layout(height=500)
-        st.plotly_chart(fig_elasticity, width='stretch')
+        st.plotly_chart(fig_elasticity, )
         
         # Elasticity distribution
         fig_dist = px.histogram(
@@ -94,7 +94,7 @@ def main():
             labels={'elasticity': 'Price Elasticity', 'count': 'Frequency'}
         )
         fig_dist.update_layout(height=400)
-        st.plotly_chart(fig_dist, width='stretch')
+        st.plotly_chart(fig_dist, )
     
     with tab2:
         # Optimal pricing recommendations
@@ -119,7 +119,7 @@ def main():
                 markers=True
             )
             fig_optimal.update_layout(height=500)
-            st.plotly_chart(fig_optimal, width='stretch')
+            st.plotly_chart(fig_optimal, )
             
             # Current vs Optimal pricing
             # Get current average ADR for comparison
@@ -153,7 +153,7 @@ def main():
                 height=500
             )
             
-            st.plotly_chart(fig_comparison, width='stretch')
+            st.plotly_chart(fig_comparison, )
             
             # Pricing recommendations table
             st.subheader("📋 Monthly Pricing Recommendations")
@@ -173,7 +173,7 @@ def main():
                 'Island', 'Month', 'Elasticity', 'Current ADR', 'Optimal ADR', 'Price Change %'
             ]
             
-            st.dataframe(display_recommendations, width='stretch', hide_index=True)
+            st.dataframe(display_recommendations, , hide_index=True)
     
     with tab3:
         # Revenue impact analysis
@@ -226,7 +226,7 @@ def main():
                 barmode='group'
             )
             fig_revenue.update_layout(height=500)
-            st.plotly_chart(fig_revenue, width='stretch')
+            st.plotly_chart(fig_revenue, )
             
             # Summary statistics
             col1, col2, col3 = st.columns(3)
@@ -253,7 +253,7 @@ def main():
     
     display_elasticity.columns = ['Island', 'Month', 'Elasticity', 'Optimal ADR']
     
-    st.dataframe(display_elasticity, width='stretch', hide_index=True)
+    st.dataframe(display_elasticity, , hide_index=True)
     
     # Pricing strategy recommendations
     st.subheader("💡 Pricing Strategy Recommendations")

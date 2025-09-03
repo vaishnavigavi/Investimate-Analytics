@@ -327,7 +327,7 @@ def main():
             color_continuous_scale='Blues'
         )
         fig_adr.update_layout(height=400)
-        st.plotly_chart(fig_adr, width='stretch')
+        st.plotly_chart(fig_adr, )
     
     with col2:
         # Occupancy Comparison
@@ -341,7 +341,7 @@ def main():
             color_continuous_scale='Greens'
         )
         fig_occupancy.update_layout(height=400)
-        st.plotly_chart(fig_occupancy, width='stretch')
+        st.plotly_chart(fig_occupancy, )
     
     with col3:
         # RevPAR Comparison
@@ -355,7 +355,7 @@ def main():
             color_continuous_scale='Reds'
         )
         fig_revpar.update_layout(height=400)
-        st.plotly_chart(fig_revpar, width='stretch')
+        st.plotly_chart(fig_revpar, )
     
     # Quick Insights
     st.header("💡 Quick Insights")

@@ -139,7 +139,7 @@ def main():
                 labels={'overall_score': 'Overall Investment Score', 'count': 'Number of Properties'}
             )
             fig_scores.update_layout(height=400)
-            st.plotly_chart(fig_scores, width='stretch')
+            st.plotly_chart(fig_scores, )
         
         with col2:
             # Score by investment grade
@@ -151,7 +151,7 @@ def main():
                 labels={'x': 'Investment Grade', 'y': 'Number of Properties'}
             )
             fig_grades.update_layout(height=400)
-            st.plotly_chart(fig_grades, width='stretch')
+            st.plotly_chart(fig_grades, )
         
         # Top performers
         st.subheader("🏆 Top Investment Properties")
@@ -169,7 +169,7 @@ def main():
         
         st.dataframe(
             top_properties_display,
-            width='stretch',
+            ,
             hide_index=True
         )
         
@@ -211,7 +211,7 @@ def main():
                 height=500
             )
             
-            st.plotly_chart(fig_radar, width='stretch')
+            st.plotly_chart(fig_radar, )
     
     with tab2:
         st.header("💡 AI Investment Recommendations")
@@ -268,7 +268,7 @@ def main():
             barmode='group'
         )
         fig_island.update_layout(height=400)
-        st.plotly_chart(fig_island, width='stretch')
+        st.plotly_chart(fig_island, )
         
         # Detailed recommendations table
         st.subheader("📋 Detailed Recommendations")
@@ -319,7 +319,7 @@ def main():
         
         st.dataframe(
             display_recs,
-            width='stretch',
+            ,
             hide_index=True
         )
     
@@ -388,7 +388,7 @@ def main():
             
             st.dataframe(
                 display_opps,
-                width='stretch',
+                ,
                 hide_index=True
             )
         else:
@@ -454,7 +454,7 @@ def main():
                 title="Portfolio Risk Distribution"
             )
             fig_risk.update_layout(height=400)
-            st.plotly_chart(fig_risk, width='stretch')
+            st.plotly_chart(fig_risk, )
             
         else:
             st.info("No specific portfolio optimization suggestions available.")
@@ -523,7 +523,7 @@ def main():
                 fig_pred.update_xaxes(title_text="Month")
                 fig_pred.update_yaxes(title_text="Value")
                 
-                st.plotly_chart(fig_pred, width='stretch')
+                st.plotly_chart(fig_pred, )
                 
                 # Summary statistics
                 col1, col2, col3, col4 = st.columns(4)
@@ -557,7 +557,7 @@ def main():
                 
                 st.dataframe(
                     display_predictions,
-                    width='stretch',
+                    ,
                     hide_index=True
                 )
                 

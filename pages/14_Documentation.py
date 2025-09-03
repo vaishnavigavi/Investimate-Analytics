@@ -195,7 +195,7 @@ def main():
         
         # Show example output
         island_summary = agg_island_summary(data)
-        st.dataframe(island_summary, width='stretch')
+        st.dataframe(island_summary, )
     
     with func_tabs[1]:
         st.markdown("""
@@ -216,7 +216,7 @@ def main():
         
         # Show example output
         seasonal_data = seasonality(data)
-        st.dataframe(seasonal_data.head(10), width='stretch')
+        st.dataframe(seasonal_data.head(10), )
     
     with func_tabs[2]:
         st.markdown("""
@@ -237,7 +237,7 @@ def main():
         
         # Show example output
         bedroom_data = bedrooms_perf(data)
-        st.dataframe(bedroom_data, width='stretch')
+        st.dataframe(bedroom_data, )
     
     with func_tabs[3]:
         st.markdown("""
@@ -258,7 +258,7 @@ def main():
         
         # Show example output
         type_data = ptype_perf(data)
-        st.dataframe(type_data.head(10), width='stretch')
+        st.dataframe(type_data.head(10), )
     
     with func_tabs[4]:
         st.markdown("""
@@ -280,7 +280,7 @@ def main():
         
         # Show example output
         uplift_data = uplift_table(data)
-        st.dataframe(uplift_data, width='stretch')
+        st.dataframe(uplift_data, )
     
     with func_tabs[5]:
         st.markdown("""
@@ -302,7 +302,7 @@ def main():
         
         # Show example output
         elasticity_data = price_elasticity_simple(data)
-        st.dataframe(elasticity_data.head(10), width='stretch')
+        st.dataframe(elasticity_data.head(10), )
     
     st.markdown("---")
     
@@ -747,7 +747,7 @@ def main():
         ```python
         # Uplift Analysis
         uplift_data = uplift_table(data)
-        st.dataframe(uplift_data, width='stretch')
+        st.dataframe(uplift_data, )
         ```
         
         **Explanation**: Calls uplift_table() function to analyze amenity impact on performance.

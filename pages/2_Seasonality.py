@@ -82,7 +82,7 @@ def main():
         yaxis_title=metric.replace('avg_', '').title()
     )
     
-    st.plotly_chart(fig, width='stretch')
+    st.plotly_chart(fig)
     
     # Bar chart comparison
     st.subheader("📊 Monthly Comparison")
@@ -106,7 +106,7 @@ def main():
         xaxis=dict(tickmode='linear', tick0=1, dtick=1)
     )
     
-    st.plotly_chart(fig_bar, width='stretch')
+    st.plotly_chart(fig_bar)
     
     # Seasonality insights
     st.subheader("🔍 Seasonality Insights")
@@ -145,7 +145,7 @@ def main():
         insights_df['Peak Value'] = insights_df['Peak Value'].apply(format_percentage)
         insights_df['Low Value'] = insights_df['Low Value'].apply(format_percentage)
     
-    st.dataframe(insights_df, width='stretch', hide_index=True)
+    st.dataframe(insights_df, hide_index=True)
     
     # Detailed table
     if show_table:
@@ -164,7 +164,7 @@ def main():
         # Rename columns for display
         display_data.columns = ['Island', 'Month', 'ADR', 'Occupancy', 'RevPAR', 'Revenue', 'Month Name']
         
-        st.dataframe(display_data, width='stretch', hide_index=True)
+        st.dataframe(display_data, hide_index=True)
     
     # Seasonal recommendations
     st.subheader("💡 Seasonal Recommendations")

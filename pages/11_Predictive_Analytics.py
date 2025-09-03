@@ -83,7 +83,7 @@ def main():
             color_continuous_scale='RdYlBu_r'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # RevPAR improvement potential
@@ -96,7 +96,7 @@ def main():
             color_continuous_scale='Greens'
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Optimal pricing recommendations
     st.markdown("---")
@@ -139,7 +139,7 @@ def main():
             yaxis_title="ADR (€)",
             height=400
         )
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     with col2:
         # RevPAR improvement potential
@@ -158,7 +158,7 @@ def main():
             yaxis_title="Improvement %",
             height=400
         )
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, )
     
     # Detailed elasticity results table
     st.subheader("📋 Detailed Elasticity Analysis")
@@ -173,7 +173,7 @@ def main():
     
     st.dataframe(
         display_elasticity[['month', 'data_points', 'current_avg_adr', 'optimal_adr', 'current_avg_revpar', 'optimal_revpar', 'revpar_improvement', 'revpar_improvement_pct', 'elasticity']],
-        width='stretch'
+        
     )
     
     # Seasonal Forecasting
@@ -267,7 +267,7 @@ def main():
             performance_df = pd.DataFrame(performance_data)
             performance_df['R² Score'] = performance_df['R² Score'].round(3)
             performance_df['RMSE'] = performance_df['RMSE'].round(3)
-            st.dataframe(performance_df, width='stretch')
+            st.dataframe(performance_df, )
     
     with col2:
         # Forecasting visualization
@@ -311,7 +311,7 @@ def main():
                 yaxis_title=selected_metric.upper(),
                 height=400
             )
-            st.plotly_chart(fig, width='stretch')
+            st.plotly_chart(fig, )
     
     # Machine Learning Models
     st.markdown("---")
@@ -405,7 +405,7 @@ def main():
         comparison_df = pd.DataFrame(comparison_data)
         comparison_df['R² Score'] = comparison_df['R² Score'].round(3)
         comparison_df['RMSE'] = comparison_df['RMSE'].round(3)
-        st.dataframe(comparison_df, width='stretch')
+        st.dataframe(comparison_df, )
     
     with col2:
         # Feature importance (for Random Forest)
@@ -426,7 +426,7 @@ def main():
                 title="Feature Importance (Random Forest)"
             )
             fig.update_layout(height=400)
-            st.plotly_chart(fig, width='stretch')
+            st.plotly_chart(fig, )
         else:
             st.subheader("🔍 Feature Importance")
             st.info("Feature importance is only available for Random Forest model.")
@@ -456,7 +456,7 @@ def main():
     ))
     
     fig.update_layout(height=400)
-    st.plotly_chart(fig, width='stretch')
+    st.plotly_chart(fig, )
     
     # Key Insights
     st.markdown("---")

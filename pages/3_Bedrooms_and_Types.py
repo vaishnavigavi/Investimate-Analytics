@@ -81,7 +81,7 @@ def main():
         )
         
         fig_bedrooms.update_layout(height=500)
-        st.plotly_chart(fig_bedrooms, width='stretch')
+        st.plotly_chart(fig_bedrooms, )
         
         # Detailed bedroom table
         st.subheader("📊 Bedroom Performance Details")
@@ -98,7 +98,7 @@ def main():
             'Total Revenue', 'Property Count', 'Revenue per Property'
         ]
         
-        st.dataframe(display_bedroom, width='stretch', hide_index=True)
+        st.dataframe(display_bedroom, , hide_index=True)
     
     with tab2:
         st.subheader("🏘️ Performance by Property Type")
@@ -152,7 +152,7 @@ def main():
                 color_continuous_scale='Blues'
             )
             fig_adr.update_layout(height=600, yaxis={'categoryorder': 'total ascending'})
-            st.plotly_chart(fig_adr, width='stretch')
+            st.plotly_chart(fig_adr, )
         
         with col2:
             # Occupancy Chart
@@ -167,7 +167,7 @@ def main():
                 color_continuous_scale='Greens'
             )
             fig_occ.update_layout(height=600, yaxis={'categoryorder': 'total ascending'})
-            st.plotly_chart(fig_occ, width='stretch')
+            st.plotly_chart(fig_occ, )
         
         with col3:
             # RevPAR Chart
@@ -182,7 +182,7 @@ def main():
                 color_continuous_scale='Reds'
             )
             fig_revpar.update_layout(height=600, yaxis={'categoryorder': 'total ascending'})
-            st.plotly_chart(fig_revpar, width='stretch')
+            st.plotly_chart(fig_revpar, )
         
         # Detailed property type table
         st.subheader("📊 Property Type Performance Details")
@@ -199,7 +199,7 @@ def main():
             'Total Revenue', 'Property Count', 'Revenue per Property'
         ]
         
-        st.dataframe(display_type, width='stretch', hide_index=True)
+        st.dataframe(display_type, , hide_index=True)
     
     # Insights and recommendations
     st.subheader("💡 Key Insights & Recommendations")
