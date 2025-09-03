@@ -229,6 +229,4 @@ For technical support or questions:
 - ✅ **UI/UX Improvements**: Responsive design and better formatting
 - ✅ **Performance Optimizations**: Caching and efficient data processing
 
----
 
-**Built with ❤️ for short-term rental property investors and analysts**
