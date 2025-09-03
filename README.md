@@ -81,6 +81,15 @@ investimate/
    ```bash
    pip install -r requirements.txt
    ```
+   
+   **Note**: The requirements.txt file contains exact version numbers to ensure compatibility. This will install:
+   - Streamlit 1.49.1 (web framework)
+   - Pandas 2.3.2 (data processing)
+   - NumPy 2.3.2 (numerical computing)
+   - Plotly 6.3.0 (interactive charts)
+   - Scikit-learn 1.7.1 (machine learning)
+   - Folium 0.20.0 (interactive maps)
+   - And all other required dependencies with exact versions
 
 4. **Run the application**
    ```bash
